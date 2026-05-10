@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Hashim — Data Analyst | Dubai</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1955a8;
+  --blue-light: #2563c4;
+  --blue-pale: #e8f0fb;
+  --dark: #0a0f1e;
+  --dark2: #111827;
+  --grey: #6b7280;
+  --light: #f8faff;
+  --white: #ffffff;
+  --accent: #00c9a7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  padding: 1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(10,15,30,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 1.2rem;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none; font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.85rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--blue-light) !important; color: white !important; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(25,85,168,0.18) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,201,167,0.08) 0%, transparent 60%);
+}
+.grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,201,167,0.1);
+  border: 1px solid rgba(0,201,167,0.3);
+  color: var(--accent);
+  padding: 0.35rem 1rem; border-radius: 100px;
+  font-size: 0.8rem; font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--accent); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+h1 span { color: var(--accent); }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 1.05rem; line-height: 1.7;
+  margin: 1.2rem 0 2rem;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.btn-primary {
+  background: var(--blue);
+  color: white; text-decoration: none;
+  padding: 0.75rem 1.8rem; border-radius: 8px;
+  font-weight: 500; font-size: 0.95rem;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent;
+  color: white; text-decoration: none;
+  padding: 0.75rem 1.8rem; border-radius: 8px;
+  font-weight: 500; font-size: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; margin-top: 2.5rem;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 1rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--accent);
+}
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+/* hero right — floating cards */
+.hero-visual {
+  position: relative;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+.hero-card:hover { transform: translateX(6px); }
+.hero-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pill {
+  background: rgba(25,85,168,0.3);
+  border: 1px solid rgba(25,85,168,0.5);
+  color: #93b4f0;
+  font-size: 0.75rem; padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+}
+.pill.green {
+  background: rgba(0,201,167,0.15);
+  border-color: rgba(0,201,167,0.3);
+  color: var(--accent);
+}
+.location-card {
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.location-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(0,201,167,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.location-text { font-size: 0.9rem; font-weight: 500; }
+.location-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800; letter-spacing: -1px;
+  margin-bottom: 3rem;
+}
+
+/* ── SKILLS ── */
+#skills { background: rgba(255,255,255,0.02); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+.skill-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 1.4rem;
+  transition: all 0.3s;
+}
+.skill-card:hover {
+  border-color: rgba(25,85,168,0.5);
+  background: rgba(25,85,168,0.08);
+  transform: translateY(-4px);
+}
+.skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.skill-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+.skill-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 1.8rem;
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--accent));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover::before { transform: scaleX(1); }
+.project-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.project-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.5rem; font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1; margin-bottom: 1rem;
+}
+.project-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.project-desc {
+  font-size: 0.875rem; color: rgba(255,255,255,0.5);
+  line-height: 1.65; margin-bottom: 1.2rem;
+}
+.project-metrics {
+  display: flex; gap: 1rem; margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+.metric-badge {
+  background: rgba(0,201,167,0.1);
+  border: 1px solid rgba(0,201,167,0.2);
+  color: var(--accent);
+  font-size: 0.75rem; padding: 0.25rem 0.7rem;
+  border-radius: 6px; font-weight: 500;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+.tag {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.55);
+  font-size: 0.72rem; padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+.project-link {
+  color: var(--blue-light);
+  text-decoration: none; font-size: 0.85rem;
+  font-weight: 500; display: inline-flex;
+  align-items: center; gap: 0.4rem;
+  transition: color 0.2s;
+}
+.project-link:hover { color: var(--accent); }
+
+/* ── EXPERIENCE ── */
+#experience { background: rgba(255,255,255,0.02); }
+.exp-timeline { position: relative; }
+.exp-timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--blue), var(--accent));
+  border-radius: 2px;
+}
+.exp-item {
+  padding: 0 0 2.5rem 2.5rem;
+  position: relative;
+}
+.exp-item::before {
+  content: '';
+  position: absolute; left: -5px; top: 4px;
+  width: 12px; height: 12px;
+  background: var(--accent); border-radius: 50%;
+  border: 2px solid var(--dark);
+}
+.exp-date {
+  font-size: 0.78rem; color: var(--accent);
+  font-weight: 500; margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+.exp-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.exp-company {
+  font-size: 0.875rem; color: rgba(255,255,255,0.45);
+  margin-bottom: 1rem;
+}
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 0.875rem; color: rgba(255,255,255,0.6);
+  line-height: 1.65; padding: 0.2rem 0;
+  padding-left: 1rem; position: relative;
+}
+.exp-bullets li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--blue-light); font-size: 0.75rem;
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: linear-gradient(135deg, rgba(25,85,168,0.15) 0%, rgba(0,201,167,0.08) 100%);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.contact-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; letter-spacing: -1px;
+  line-height: 1.1; margin-bottom: 1.2rem;
+}
+.contact-title span { color: var(--accent); }
+.contact-sub {
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem; line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.contact-links { display: flex; flex-direction: column; gap: 1rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 1rem 1.2rem;
+  text-decoration: none; color: white;
+  transition: all 0.2s;
+}
+.contact-link:hover {
+  background: rgba(25,85,168,0.15);
+  border-color: rgba(25,85,168,0.4);
+  transform: translateX(6px);
+}
+.contact-link-icon {
+  width: 38px; height: 38px;
+  background: rgba(25,85,168,0.3);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.contact-link-text { font-size: 0.9rem; font-weight: 500; }
+.contact-link-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+.availability-card {
+  background: rgba(0,201,167,0.08);
+  border: 1px solid rgba(0,201,167,0.2);
+  border-radius: 14px; padding: 2rem;
+  text-align: center;
+}
+.avail-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.avail-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem; font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.avail-sub { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.avail-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,201,167,0.15);
+  border: 1px solid rgba(0,201,167,0.3);
+  color: var(--accent); padding: 0.4rem 1rem;
+  border-radius: 100px; font-size: 0.8rem;
+  font-weight: 500; margin-top: 1.2rem;
+}
+.avail-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--accent); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-visual { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .nav-links { display: none; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MH<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">Available for immediate joining · Dubai, UAE</div>
+      <h1>Mohammed<br>Hashim<span>.</span></h1>
+      <p class="hero-sub">Data Analyst specializing in Power BI, SQL, Excel & Python. I transform raw datasets into dashboards and insights that drive business decisions.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">10K+</div>
+          <div class="stat-label">Records Analyzed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Dashboards Built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">40%</div>
+          <div class="stat-label">Efficiency Gain</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title">Core Skills</div>
+        <div class="skill-pills">
+          <span class="pill">Power BI</span>
+          <span class="pill">DAX</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Python</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Excel</span>
+          <span class="pill">Power Query</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Currently</div>
+        <div class="skill-pills">
+          <span class="pill green">Open to Work</span>
+          <span class="pill green">Immediate Joining</span>
+          <span class="pill green">UAE Visa Valid</span>
+        </div>
+      </div>
+      <div class="hero-card location-card">
+        <div class="location-icon">📍</div>
+        <div>
+          <div class="location-text">Dubai, UAE</div>
+          <div class="location-sub">Available across Dubai & UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label reveal">Technical Skills</div>
+    <div class="section-title reveal">Tools & Technologies</div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Power BI & DAX</div>
+        <div class="skill-desc">Interactive dashboards, data modeling, KPI tracking, self-service BI</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">SQL</div>
+        <div class="skill-desc">MySQL, PostgreSQL, data extraction, querying, customer segmentation</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📗</div>
+        <div class="skill-name">Microsoft Excel</div>
+        <div class="skill-desc">Pivot Tables, XLOOKUP, Power Query, advanced formulas, automated reporting</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-desc">Pandas, NumPy, data cleaning, EDA, preprocessing, Matplotlib</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🧹</div>
+        <div class="skill-name">Data Analysis</div>
+        <div class="skill-desc">Data cleaning, transformation, visualization, trend analysis, business reporting</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-name">Developer Tools</div>
+        <div class="skill-desc">Git, Jupyter Notebook, Google Colab, VS Code, MySQL, PostgreSQL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label reveal">Portfolio</div>
+    <div class="section-title reveal">Featured Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-num">01</div>
+        <div class="project-title">Sales Performance Analysis Dashboard</div>
+        <div class="project-desc">Analyzed 10,000+ sales records to identify revenue trends, top-performing products, and regional performance gaps across UAE & KSA regions.</div>
+        <div class="project-metrics">
+          <span class="metric-badge">40% efficiency gain</span>
+          <span class="metric-badge">10K+ records</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Excel</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Power Query</span>
+        </div>
+        <a href="https://github.com/mohammedhashim80/-sales-performance-dashboard" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">02</div>
+        <div class="project-title">Customer Churn Analysis</div>
+        <div class="project-desc">End-to-end customer data analysis to identify key churn drivers. Segmented 1,000 customers into risk groups and proposed data-driven retention strategies.</div>
+        <div class="project-metrics">
+          <span class="metric-badge">20.5% churn rate</span>
+          <span class="metric-badge">1K customers</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/mohammedhashim80/-customer-churn-analysis" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">03</div>
+        <div class="project-title">Financial Data Analysis</div>
+        <div class="project-desc">Processed financial datasets across 6 departments to generate insights on budget variance, cost distribution, and spending patterns for finance team decision-making.</div>
+        <div class="project-metrics">
+          <span class="metric-badge">30% effort reduced</span>
+          <span class="metric-badge">6 departments</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Excel</span>
+          <span class="tag">Power Query</span>
+          <span class="tag">Pivot Tables</span>
+          <span class="tag">Python</span>
+        </div>
+        <a href="https://github.com/mohammedhashim80/-financial-data-analysis-excel" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label reveal">Career</div>
+    <div class="section-title reveal">Work Experience</div>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-date">Jun 2024 — Dec 2024</div>
+        <div class="exp-title">Data Analytics Intern</div>
+        <div class="exp-company">Luminar Technolab · Kerala, India</div>
+        <ul class="exp-bullets">
+          <li>Designed 3+ Power BI dashboards tracking 10+ operational KPIs for management reporting</li>
+          <li>Cleaned and validated 5,000+ records per cycle using SQL, Excel & Python — 25% accuracy gain</li>
+          <li>Automated 4+ Excel workflows using Power Query, saving 3+ hours weekly</li>
+          <li>Produced 10+ reports supporting senior management decisions</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">Jan 2024 — Mar 2024</div>
+        <div class="exp-title">Software Development Intern</div>
+        <div class="exp-company">Riss Technolab · Kerala, India</div>
+        <ul class="exp-bullets">
+          <li>Built a full-stack donation management system in Python, Android & MySQL for 100+ families</li>
+          <li>Integrated 5+ modules improving usability and reducing data entry errors by 20%</li>
+          <li>Collaborated with 4-member team to streamline reporting workflows</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label reveal">Get In Touch</div>
+        <div class="contact-title reveal">Let's Work<br><span>Together</span></div>
+        <p class="contact-sub reveal">Based in Dubai on a valid UAE Visit Visa. Available for immediate joining across Dubai and the UAE. Open to Data Analyst, MIS Executive, Reporting Analyst, and BI roles.</p>
+        <div class="contact-links reveal">
+          <a href="tel:+971588830480" class="contact-link">
+            <div class="contact-link-icon">📱</div>
+            <div>
+              <div class="contact-link-text">+971 58 883 0480</div>
+              <div class="contact-link-sub">Call or WhatsApp</div>
+            </div>
+          </a>
+          <a href="mailto:mohammedhashim871441@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div class="contact-link-text">mohammedhashim871441@gmail.com</div>
+              <div class="contact-link-sub">Email me anytime</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/mohammed-hashim--" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div class="contact-link-text">linkedin.com/in/mohammed-hashim</div>
+              <div class="contact-link-sub">Connect on LinkedIn</div>
+            </div>
+          </a>
+          <a href="https://github.com/mohammedhashim80" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💻</div>
+            <div>
+              <div class="contact-link-text">github.com/mohammedhashim80</div>
+              <div class="contact-link-sub">View my projects</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="availability-card">
+          <div class="avail-icon">🚀</div>
+          <div class="avail-title">Ready to Join</div>
+          <div class="avail-sub">
+            Currently based in Dubai, UAE on a valid Visit Visa until June 2026. Available for immediate joining with no notice period required.
+            <br><br>
+            <strong>Target Roles:</strong><br>
+            Data Analyst · MIS Executive<br>
+            Reporting Analyst · BI Analyst
+          </div>
+          <div class="avail-badge">Available Immediately</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Mohammed Hashim · Data Analyst · Dubai, UAE · Built with passion</p>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
